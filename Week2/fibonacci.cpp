@@ -21,14 +21,14 @@ int fibonacci_naive(int n) {
     return fibonacci_naive(n - 1) + fibonacci_naive(n - 2);
 }
 
-int fibonacci_fast(int n) {
+int128_t fibonacci_fast(int n) {
     if (n <= 1){
-      return n;
+      return (int128_t)n;
     }
 
-    int fib1 = 0;
-    int fib2 = 1;
-    int temp;
+    int128_t fib1 = 0;
+    int128_t fib2 = 1;
+    int128_t temp;
 
     for (int i=1; i<n; i++){
       temp = fib2;
@@ -39,26 +39,26 @@ int fibonacci_fast(int n) {
     return fib2;
 }
 
-void test_solution() {
-    assert(fibonacci_fast(3) == 2);
-    assert(fibonacci_fast(10) == 55);
-
-    int fibfast;
-    int fibnaive;
-
-    for (int n = 0; n < 46; n++) {
-      fibfast = fibonacci_fast(n);
-      fibnaive = fibonacci_naive(n);
-
-      std::cout << "n: " << n << '\n';
-      std::cout << "fibonacci_fast: " << fibfast << "\n";
-      std::cout << "fibonacci_naive: " << fibnaive << "\n";
-
-      assert(fibfast == fibnaive);
-      std::cout << " " << '\n';
-    }
-
-}
+// void test_solution() {
+//     assert(fibonacci_fast(3) == 2);
+//     assert(fibonacci_fast(10) == 55);
+//
+//     int fibfast;
+//     int fibnaive;
+//
+//     for (int n = 0; n < 46; n++) {
+//       fibfast = fibonacci_fast(n);
+//       fibnaive = fibonacci_naive(n);
+//
+//       std::cout << "n: " << n << '\n';
+//       std::cout << "fibonacci_fast: " << fibfast << "\n";
+//       std::cout << "fibonacci_naive: " << fibnaive << "\n";
+//
+//       assert(fibfast == fibnaive);
+//       std::cout << " " << '\n';
+//     }
+//
+// }
 
 int main() {
   int n;
