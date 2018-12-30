@@ -60,7 +60,7 @@ int main() {
     // std::cout << "naive: " "<< naive << '\n'
 
     int fast = get_fibonacci_last_digit_fast(n);
-    std::cout << "fast: "<< fast << '\n';;
+    std::cout << fast << '\n';;
 
     //test_solution();
     }
