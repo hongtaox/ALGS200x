@@ -20,26 +20,24 @@ bounds partition2(vector<long long> &a, long long l, long long r) {
   long long low = l;
   long long high = r;
 
-  long long i=1;
-  //loop from polong long adlowacent to pivot until rightmost polong long
-  while (i < high){
-    if (a[i] < pivot){
-      swap(a[i], a[low]);
-      low++; i++;
+  long long mid=l;
+
+  while (mid < r){
+    if (a[mid] < pivot){
+      swap(a[mid], a[low]);
+      low++; mid++;
     }
-    else if (a[i] > pivot){
-      swap(a[i], a[high]);
+    else if (a[mid] > pivot){
+      swap(a[mid], a[high]);
       high--;
     }
     else {
-      i++;
+      mid++;
     }
   }
 
   lowhigh.low = low;
   lowhigh.high = high;
-
-  swap(a[l], a[low]);
 
   return lowhigh;
 }
@@ -50,12 +48,12 @@ void randomized_quicksort(vector<long long> &a, long long l, long long r) {
   }
 
   long long pivot = l + rand() % (r - l + 1);
-  swap(a[l], a[pivot]); //l is the new pivot
+  swap(a[l], a[pivot]);
 
   bounds m = partition2(a, l, r);
 
-  randomized_quicksort(a, l, m.low);
-  randomized_quicksort(a, m.high, r);
+  randomized_quicksort(a, l, m.low-1);
+  randomized_quicksort(a, m.high+1, r);
 }
 
 int main() {
