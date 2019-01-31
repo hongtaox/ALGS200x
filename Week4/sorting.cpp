@@ -22,7 +22,7 @@ bounds partition2(vector<long long> &a, long long l, long long r) {
 
   long long mid=l;
 
-  while (mid < high){
+  while (mid <= high){
     if (a[mid] < pivot){
       swap(a[mid], a[low]);
       low++; mid++;
@@ -37,7 +37,7 @@ bounds partition2(vector<long long> &a, long long l, long long r) {
   }
 
   lowhigh.low = low;
-  lowhigh.high = high;
+  lowhigh.high = mid;
 
   return lowhigh;
 }
@@ -52,8 +52,8 @@ void randomized_quicksort(vector<long long> &a, long long l, long long r) {
 
   bounds m = partition2(a, l, r);
 
-  randomized_quicksort(a, l, m.low-1);
-  randomized_quicksort(a, m.high+1, r);
+  randomized_quicksort(a, l, m.low);
+  randomized_quicksort(a, m.high, r);
 }
 
 int main() {
