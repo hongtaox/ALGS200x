@@ -22,7 +22,7 @@ bounds partition2(vector<long long> &a, long long l, long long r) {
 
   long long mid=l;
 
-  while (mid < r){
+  while (mid < high){
     if (a[mid] < pivot){
       swap(a[mid], a[low]);
       low++; mid++;
