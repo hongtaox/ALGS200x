@@ -19,13 +19,6 @@ int *getOperations (int index){
   for (int i=4; i<=index; i++){
 
     tempMinOne = numOperations[i-1]+1;
-    // if (i%3==0){
-    //   tempDivThree =numOperations[i/3]+1;
-    // }
-    // if (i%2==0){
-    //   tempDivTwo=numOperations[i/2]+1;
-    // }
-
 
     if (i%3==0 && ((numOperations[i/3]+1) <= tempMinOne)){
       numOperations[i] = numOperations[i/3]+1;
